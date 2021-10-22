@@ -4,5 +4,6 @@ bin/
 .*
 *.log
 
-src/main/resources/db.properties
+.src/main/resources/db.properties
+ db.properties
 

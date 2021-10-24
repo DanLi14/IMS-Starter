@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `ims`.`customers` (
 
 SELECT * FROM customers;
 
-CREATE TABLE IF NOT EXISTS `testims`.`items` (
+CREATE TABLE IF NOT EXISTS `ims`.`items` (
     `item_id` INT(11) NOT NULL AUTO_INCREMENT,
     `item_name` VARCHAR(40) DEFAULT NULL,
     `cost` DECIMAL (6,2) NOT NULL,

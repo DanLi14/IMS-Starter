@@ -19,3 +19,12 @@ CREATE TABLE IF NOT EXISTS `ims`.`items` (
 );
 
 SELECT * FROM items;
+
+CREATE TABLE IF NOT EXISTS `ims`.`orders` (
+    `order_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `fk_customer_id` INT(11),
+    PRIMARY KEY (`order_id`),
+    FOREIGN KEY (`fk_customer_id`) REFERENCES customers(id)
+);
+
+SELECT * FROM orders;

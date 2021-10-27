@@ -13,6 +13,11 @@ public class OrderItems {
 		this.fkOrderId = fkOrderId;
 		this.fkItemId = fkItemId;
 	}
+	
+	// Constructor with fkOrderId only
+	public OrderItems(long fkOrderId) {
+		this.fkOrderId = fkOrderId;
+	}
 
 	// Constructor with primary key
 	public OrderItems(long orderItemsId, long fkOrderId, long fkItemId) {

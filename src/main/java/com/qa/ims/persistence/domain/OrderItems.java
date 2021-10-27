@@ -4,12 +4,29 @@ import java.util.Objects;
 
 public class OrderItems {
 
+	private long orderItemsId;
 	private long fkOrderId;
 	private long fkItemId;
 
+	// Constructor w/o primary key
 	public OrderItems(long fkOrderId, long fkItemId) {
 		this.fkOrderId = fkOrderId;
 		this.fkItemId = fkItemId;
+	}
+
+	// Constructor with primary key
+	public OrderItems(long orderItemsId, long fkOrderId, long fkItemId) {
+		this.orderItemsId = orderItemsId;
+		this.fkOrderId = fkOrderId;
+		this.fkItemId = fkItemId;
+	}
+
+	public long getOrderItemsId() {
+		return orderItemsId;
+	}
+
+	public void setOrderItemsId(long orderItemsId) {
+		this.orderItemsId = orderItemsId;
 	}
 
 	public long getFkOrderId() {
@@ -30,12 +47,12 @@ public class OrderItems {
 
 	@Override
 	public String toString() {
-		return "fkOrderId=" + fkOrderId + ", fkItemId=" + fkItemId;
+		return "orderItemsId=" + orderItemsId + ", fkOrderId=" + fkOrderId + ", fkItemId=" + fkItemId;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(fkItemId, fkOrderId);
+		return Objects.hash(fkItemId, fkOrderId, orderItemsId);
 	}
 
 	@Override
@@ -47,7 +64,7 @@ public class OrderItems {
 		if (getClass() != obj.getClass())
 			return false;
 		OrderItems other = (OrderItems) obj;
-		return fkItemId == other.fkItemId && fkOrderId == other.fkOrderId;
+		return fkItemId == other.fkItemId && fkOrderId == other.fkOrderId && orderItemsId == other.orderItemsId;
 	}
 
 }

@@ -10,7 +10,7 @@ public interface Oidao<T> {
 	
 	T create(T t);
 	
-	double calcCost(T t);
+	double calcCost(long orderId);
 	
 	int delete(long id, String name);
 

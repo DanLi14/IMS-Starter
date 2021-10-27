@@ -92,12 +92,16 @@ public class OrderItemsDAO implements Oidao<OrderItems> {
 	 * @return total order cost value.
 	 */
 	@Override
-	public double calcCost(OrderItems orderItems) {
+	public double calcCost(long orderId) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection.prepareStatement(
 						"SELECT SUM(cost) FROM items i JOIN order_items oi ON i.item_id=oi.fk_item_id WHERE oi.fk_order_id = ?");) {
-			statement.setLong(1, orderItems.getFkOrderId());
-			return statement.executeUpdate();
+			statement.setLong(1, orderId);
+			ResultSet resultSet = statement.executeQuery();
+			resultSet.next();
+			double sum = resultSet.getDouble("SUM(cost)");
+			System.out.println(sum);
+			return sum;
 		} catch (Exception e) {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());

@@ -54,7 +54,9 @@ public class ItemDAOTest {
 	
 	@Test
 	public void testDelete() {
-		assertEquals(1, DAO.delete(1));
+		final Item created = new Item(2L, "Battlefield1", 9.99);
+		DAO.create(created);
+		assertEquals(1, DAO.delete(2));
 	}
 	
 

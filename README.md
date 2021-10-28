@@ -1,7 +1,11 @@
 Coverage: 34%
 # Inventory Management System
 
-One Paragraph of project description goes here
+Application which allows the end user to interact (through the Command-Line Interface (CLI)) with an inventory management system, to perform Create, Read, Update, Delete (CRUD) functions in connection with the following entities:
+
+1. Customer
+2. Item
+3. Order
 
 ## Getting Started
 

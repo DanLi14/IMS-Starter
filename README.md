@@ -35,7 +35,7 @@ Recommended IDE for Java developers https://www.eclipse.org/downloads/packages/r
 **Running the IMS**
 1. Git clone this repository into your local machine wihin your preferred location
 2. Execute the sql-schema.sql file (found within src/main/resources) within MySQL workbench  
-3. Right-click on the Runner file (found within src/main/java/com.qa.ims) and select the option to "Run As" and then "Java Application"  
+3. Right-click on the Runner file (found within src/main/java/com.qa.ims), select "Run As" and then "Java Application"  
 4. Create a customer by inputting CUSTOMER then following the terminal instructions
 5. Create an item by inputting ITEM then following the terminal instructions
 6. Create an order by inputting ORDER then following the terminal instructions
@@ -44,34 +44,27 @@ Recommended IDE for Java developers https://www.eclipse.org/downloads/packages/r
 
 ## Running the tests
 
-Explain how to run the automated tests for this system. Break down into which tests and what they do
+To test the application, right click on the root folder within Eclipse, select "Run As" and then "JUnit Test"
+
+This will run both the unit test files which uses Junit (see below for details) and the integration test files (see below for details) built on the Mockito framework.  
 
 ### Unit Tests 
 
-Explain what these tests test, why and how to run them
+The unit test files test whether each 'unit' i.e. method of the application is functioning as expected.
 
-```
-Give an example
-```
+Unit tests have been written to cover the following file types:
+
+1. classes e.g. Customer, Item etc.
+2. Data Access Object (DAO) files e.g. CustomerDAO, ItemDAO etc. 
 
 ### Integration Tests 
-Explain what these tests test, why and how to run them
+The integration tests written using the Mockito framework, test the functioning of the software when modules are combined
 
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+Integration tests have been written to test how the controller files (e.g. CustomerController, ItemController etc.) interacts with the corresponding DAO files and Logger methods found within the utilities file.  
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+The IMS application is deployed in a fat JAR file i.e. a JAR file that contains the Java program and all dependencies. 
 
 ## Built With
 
@@ -84,7 +77,7 @@ We use [SemVer](http://semver.org/) for versioning.
 ## Authors
 
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
-* ** Daniel Li - *completed IMS* - [danielli] (https://github.com/DanLi14)
+* **Daniel Li** - *completed IMS* - [danielli](https://github.com/DanLi14)
 
 ## License
 

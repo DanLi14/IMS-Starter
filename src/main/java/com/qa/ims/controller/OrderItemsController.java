@@ -69,8 +69,8 @@ public class OrderItemsController implements OiCrudController<OrderItems> {
 	public int delete() {
 		LOGGER.info("Please enter the id of the order you would like to delete an item from");
 		Long orderId = utils.getLong();
-		LOGGER.info("Please enter the name of the item you would like to delete from the order");
-		String itemName = utils.getString();
+		LOGGER.info("Please enter the id of the item you would like to delete from the order");
+		Long itemName = utils.getLong();
 		return orderItemsDAO.delete(orderId, itemName);
 	}
 

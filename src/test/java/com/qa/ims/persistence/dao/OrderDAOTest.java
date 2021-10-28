@@ -54,7 +54,9 @@ public class OrderDAOTest {
 
 	@Test
 	public void testDelete() {
-		assertEquals(1, DAO.delete(1));
+		final Order created = new Order(2L, 1);
+		DAO.create(created);
+		assertEquals(1, DAO.delete(2));
 	}
 
 }

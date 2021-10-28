@@ -12,7 +12,7 @@ public interface Oidao<T> {
 	
 	double calcCost(long orderId);
 	
-	int delete(long id, String name);
+	int delete(long orderId, long itemId);
 
 	T modelFromResultSet(ResultSet resultSet) throws SQLException;
 

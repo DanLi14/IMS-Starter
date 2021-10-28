@@ -116,12 +116,12 @@ public class OrderItemsDAO implements Oidao<OrderItems> {
 	 *
 	 */
 	@Override
-	public int delete(long id, String name) {
+	public int delete(long orderId, long itemId) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement(
-						"DELETE oi FROM order_items oi JOIN items i ON i.item_id=oi.fk_item_id WHERE oi.fk_order_id = ? AND i.item_name = ?");) {
-			statement.setLong(1, id);
-			statement.setString(2, name);
+				PreparedStatement statement = connection
+						.prepareStatement("DELETE FROM order_items WHERE fk_order_id = ? AND fk_item_id = ?");) {
+			statement.setLong(1, orderId);
+			statement.setLong(2, itemId);
 			return statement.executeUpdate();
 		} catch (Exception e) {
 			LOGGER.debug(e);

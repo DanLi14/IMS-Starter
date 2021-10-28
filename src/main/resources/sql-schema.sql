@@ -28,3 +28,14 @@ CREATE TABLE IF NOT EXISTS `ims`.`orders` (
 );
 
 SELECT * FROM orders;
+
+CREATE TABLE IF NOT EXISTS `ims`.`order_items` (
+	`order_items_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `fk_order_id` INT(11),
+    `fk_item_id` INT(11),
+	PRIMARY KEY (`order_items_id`),
+    FOREIGN KEY (`fk_order_id`) REFERENCES orders(order_id),
+    FOREIGN KEY (`fk_item_id`) REFERENCES items(item_id)
+);
+
+SELECT * FROM order_items;

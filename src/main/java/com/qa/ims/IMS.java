@@ -7,10 +7,13 @@ import com.qa.ims.controller.Action;
 import com.qa.ims.controller.CrudController;
 import com.qa.ims.controller.CustomerController;
 import com.qa.ims.controller.ItemController;
+import com.qa.ims.controller.OiCrudController;
 import com.qa.ims.controller.OrderController;
+import com.qa.ims.controller.OrderItemsController;
 import com.qa.ims.persistence.dao.CustomerDAO;
 import com.qa.ims.persistence.dao.ItemDAO;
 import com.qa.ims.persistence.dao.OrderDAO;
+import com.qa.ims.persistence.dao.OrderItemsDAO;
 import com.qa.ims.persistence.domain.Domain;
 import com.qa.ims.utils.DBUtils;
 import com.qa.ims.utils.Utils;
@@ -22,6 +25,7 @@ public class IMS {
 	private final CustomerController customers;
 	private final ItemController items;
 	private final OrderController orders;
+	private final OrderItemsController orderItems;
 	private final Utils utils;
 
 	public IMS() {
@@ -32,6 +36,8 @@ public class IMS {
 		this.items = new ItemController(itemDAO, utils);
 		final OrderDAO orderDAO = new OrderDAO();
 		this.orders = new OrderController(orderDAO, utils);
+		final OrderItemsDAO orderItemsDAO = new OrderItemsDAO();
+		this.orderItems = new OrderItemsController(orderItemsDAO, utils);
 	}
 
 	public void imsSystem() {
@@ -55,6 +61,7 @@ public class IMS {
 		do {
 
 			CrudController<?> active = null;
+			OiCrudController<?> activeOi = null;
 			switch (domain) {
 			case CUSTOMER:
 				active = this.customers;
@@ -65,19 +72,24 @@ public class IMS {
 			case ORDER:
 				active = this.orders;
 				break;
+			case ORDERITEMS:
+				activeOi = this.orderItems;
+				break;
 			case STOP:
 				return;
 			default:
 				break;
 			}
 
-			LOGGER.info(() ->"What would you like to do with " + domain.name().toLowerCase() + ":");
+			LOGGER.info(() -> "What would you like to do with " + domain.name().toLowerCase() + ":");
 
 			Action.printActions();
 			Action action = Action.getAction(utils);
 
 			if (action == Action.RETURN) {
 				changeDomain = true;
+			} else if (domain.name() == "ORDERITEMS") {
+				doActionOi(activeOi, action);
 			} else {
 				doAction(active, action);
 			}
@@ -97,6 +109,27 @@ public class IMS {
 			break;
 		case DELETE:
 			crudController.delete();
+			break;
+		case RETURN:
+			break;
+		default:
+			break;
+		}
+	}
+
+	public void doActionOi(OiCrudController<?> oiCrudController, Action action) {
+		switch (action) {
+		case CREATE:
+			oiCrudController.create();
+			break;
+		case READ:
+			oiCrudController.readAll();
+			break;
+		case CALCULATECOST:
+			oiCrudController.calcCost();
+			break;
+		case DELETE:
+			oiCrudController.delete();
 			break;
 		case RETURN:
 			break;

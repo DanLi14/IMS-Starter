@@ -32,10 +32,6 @@ public class Order {
 		return fkCustomerId;
 	}
 
-//	public void setFkCustomerId(long fkCustomerId) {
-//	this.fkCustomerId = fkCustomerId;
-//}
-
 	@Override
 	public String toString() {
 		return "orderId=" + orderId + ", fkCustomerId=" + fkCustomerId;

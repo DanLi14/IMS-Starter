@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS `order_items`;
 DROP TABLE IF EXISTS `orders`;
 DROP TABLE IF EXISTS `customers`;
 
@@ -22,4 +23,13 @@ CREATE TABLE IF NOT EXISTS `orders` (
     `fk_customer_id` INT(11),
     PRIMARY KEY (`order_id`),
     FOREIGN KEY (`fk_customer_id`) REFERENCES customers(id)
+);
+
+CREATE TABLE IF NOT EXISTS `order_items` (
+	`order_items_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `fk_order_id` INT(11),
+    `fk_item_id` INT(11),
+	PRIMARY KEY (`order_items_id`),
+    FOREIGN KEY (`fk_order_id`) REFERENCES orders(order_id),
+    FOREIGN KEY (`fk_item_id`) REFERENCES items(item_id)
 );

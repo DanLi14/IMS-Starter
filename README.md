@@ -1,4 +1,4 @@
-Coverage: 34%
+Coverage: 79%
 # Inventory Management System
 
 Application which allows the end user to interact (through the Command-Line Interface (CLI)) with an inventory management system, to perform Create, Read, Update, Delete (CRUD) functions in connection with the following entities:

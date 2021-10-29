@@ -34,13 +34,14 @@ Recommended IDE for Java developers https://www.eclipse.org/downloads/packages/r
 
 **Running the IMS**
 1. Git clone this repository into your local machine within your preferred location
-2. Execute the sql-schema.sql file (found within src/main/resources) within MySQL workbench  
-3. Right-click on the Runner file (found within src/main/java/com.qa.ims), select "Run As" and then "Java Application"  
-4. Create a customer by inputting CUSTOMER followed by CREATE then following the terminal instructions
-5. Create an item by inputting ITEM followed by CREATE then following the terminal instructions
-6. Create an order by inputting ORDER followed by CREATE then following the terminal instructions
-7. ADD an item to an order, by inputting ORDERITEMS followed by CREATE then following the terminal instructions
-8. Once the above steps have been completed, you should have access to the full suite of CRUD functions including calculating the cost of an order and deleting an item from an order. 
+2. Configure the db.properties file (found within src.main/resources) with your mysql credentials 
+3. Execute the sql-schema.sql file (found within src/main/resources) within MySQL workbench  
+4. Right-click on the Runner file (found within src/main/java/com.qa.ims), select "Run As" and then "Java Application"  
+5. Create a customer by inputting CUSTOMER followed by CREATE then following the terminal instructions
+6. Create an item by inputting ITEM followed by CREATE then following the terminal instructions
+7. Create an order by inputting ORDER followed by CREATE then following the terminal instructions
+8. ADD an item to an order, by inputting ORDERITEMS followed by CREATE then following the terminal instructions
+9. Once the above steps have been completed, you should have access to the full suite of CRUD functions including calculating the cost of an order and deleting an item from an order. 
 
 ## Running the tests
 

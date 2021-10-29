@@ -13,11 +13,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-MySQL Server 5.7 or later (local or GCP instance)
-Java (local)
-Optional but recommended - MySQL Workbench
-Optional but recommended - Eclipse Integrated Development Environment (IDE) 
-
+* MySQL Server 5.7 or later (local or GCP instance)
+* Java (local)
+* Optional but recommended - MySQL Workbench
+* Optional but recommended - Eclipse Integrated Development Environment (IDE) 
 
 ### Installing
 

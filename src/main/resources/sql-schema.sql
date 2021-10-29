@@ -9,8 +9,6 @@ CREATE TABLE IF NOT EXISTS `ims`.`customers` (
     PRIMARY KEY (`id`)
 );
 
-SELECT * FROM customers;
-
 CREATE TABLE IF NOT EXISTS `ims`.`items` (
     `item_id` INT(11) NOT NULL AUTO_INCREMENT,
     `item_name` VARCHAR(40) DEFAULT NULL,
@@ -18,16 +16,12 @@ CREATE TABLE IF NOT EXISTS `ims`.`items` (
     PRIMARY KEY (`item_id`)
 );
 
-SELECT * FROM items;
-
 CREATE TABLE IF NOT EXISTS `ims`.`orders` (
     `order_id` INT(11) NOT NULL AUTO_INCREMENT,
     `fk_customer_id` INT(11),
     PRIMARY KEY (`order_id`),
     FOREIGN KEY (`fk_customer_id`) REFERENCES customers(id)
 );
-
-SELECT * FROM orders;
 
 CREATE TABLE IF NOT EXISTS `ims`.`order_items` (
 	`order_items_id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -37,5 +31,3 @@ CREATE TABLE IF NOT EXISTS `ims`.`order_items` (
     FOREIGN KEY (`fk_order_id`) REFERENCES orders(order_id),
     FOREIGN KEY (`fk_item_id`) REFERENCES items(item_id)
 );
-
-SELECT * FROM order_items;
